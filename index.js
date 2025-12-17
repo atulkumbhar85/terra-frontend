@@ -19,7 +19,7 @@ app.get('/', (req, res) => {
 app.post('/submit-form', async (req, res) => {
     try {
         const todo = req.body;
-        const response = await axios.post(`${FLASK_API_URL}/add`, { 
+        const response = await axios.post(`${FLASK_API_URL}/api/add`, { 
             task: todo.task,
             description: todo.description
          });
