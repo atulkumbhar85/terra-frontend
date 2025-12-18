@@ -2,6 +2,9 @@ const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 const axios = require('axios');
+const dotenv = require('dotenv');
+
+dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -18,6 +21,7 @@ app.get('/', (req, res) => {
 
 app.post('/submit-form', async (req, res) => {
     try {
+        console.log("Flask API URL:", FLASK_API_URL);
         const todo = req.body;
         const response = await axios.post(`${FLASK_API_URL}/api/addtodoitem`, { 
             task: todo.task,
